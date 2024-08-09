@@ -9,30 +9,24 @@ using namespace std;
 class Solution {
   public:
     void reArrange(int arr[], int N) {
-        // code here
-        int l=0;
-        for(int i=0;i<N;i++)if(arr[i]%2==0){l=i;break;}
-        
-        
-        for(int i=0;i<N;i++){
-            if(i%2==0){
-                if(arr[i]%2==0){
-                    if(i==l)l++;
-                    
-                        while(l<N && ( arr[l]%2 || (arr[l]%2==0 && l%2==0)))l++;
-                    
-                    
-                    continue;
-                }
-                else{
-                    swap(arr[i],arr[l]);
-                    l++;
-                     while(l<N && ( arr[l]%2 || (arr[l]%2==0 && l%2==0)))l++;
-                }
-            }
-        }
-        
+  
         // for( int i=0;i<N;i++)cout<<arr[i]<<" ";
+        int eve=0,odd=1;
+        while(1){
+            while(eve<N && arr[eve]%2==0){
+                eve+=2;
+            }
+            
+            while(odd<N && arr[odd]%2==1){
+                odd+=2;
+            }
+            
+            
+            
+            if(eve<N && odd<N)swap(arr[eve],arr[odd]);
+            else break;
+            
+        }
         
     }
 };
